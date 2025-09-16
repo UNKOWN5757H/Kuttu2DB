@@ -653,7 +653,7 @@ async def auto_filter(client, msg, spoll=False):
         # ✅ Check for spammy links/usernames
         if re.search(r'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/)\S+|@[a-z0-9_]{5,32}\b', message.text):
             if message.from_user and message.from_user.id not in ADMINS:
-                await asyncio.sleep(1)
+                await asyncio.sleep()
                 await message.delete()
                 return
 
