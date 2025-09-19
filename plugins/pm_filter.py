@@ -641,7 +641,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_reply_markup(reply_markup)
     await query.answer('Piracy Is Crime')
 
-
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -652,7 +651,6 @@ async def auto_filter(client, msg, spoll=False):
 
         # ✅ Check for spammy links/usernames
         if re.search(r'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/)\S+|@[a-z0-9_]{5,32}\b', message.text):
-            # ✅ Don't delete if user is an admin
             if message.from_user and message.from_user.id not in ADMINS:
                 await asyncio.sleep()
                 await message.delete()
@@ -689,8 +687,6 @@ async def auto_filter(client, msg, spoll=False):
         search, files, offset, total_results = spoll
 
     pre = 'filep' if settings['file_secure'] else 'file'
-
-    # Define 'req' early to avoid UnboundLocalError
     req = message.from_user.id if message.from_user else 0
 
     # ✅ Create file buttons
@@ -732,7 +728,6 @@ async def auto_filter(client, msg, spoll=False):
 
     # ✅ Pagination buttons
     if offset != "":
-        req = message.from_user.id if message.from_user else 0
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
         btn.append([
@@ -742,60 +737,12 @@ async def auto_filter(client, msg, spoll=False):
     else:
         btn.append([InlineKeyboardButton(text="🗓 1/1", callback_data="pages")])
 
-    imdb = await get_poster(search, file=files[0].file_name) if settings["imdb"] and files else None
-    TEMPLATE = settings['template']
-
-    if imdb:
-        try:
-            cap = TEMPLATE.format(
-                query=search,
-                title=imdb['title'],
-                votes=imdb['votes'],
-                aka=imdb["aka"],
-                seasons=imdb["seasons"],
-                box_office=imdb['box_office'],
-                localized_title=imdb['localized_title'],
-                kind=imdb['kind'],
-                imdb_id=imdb["imdb_id"],
-                cast=imdb["cast"],
-                runtime=imdb["runtime"],
-                countries=imdb["countries"],
-                certificates=imdb["certificates"],
-                languages=imdb["languages"],
-                director=imdb["director"],
-                writer=imdb["writer"],
-                producer=imdb["producer"],
-                composer=imdb["composer"],
-                cinematographer=imdb["cinematographer"],
-                music_team=imdb["music_team"],
-                distributors=imdb["distributors"],
-                release_date=imdb['release_date'],
-                year=imdb['year'],
-                genres=imdb['genres'],
-                poster=imdb['poster'],
-                plot=imdb['plot'],
-                rating=imdb['rating'],
-                url=imdb['url']
-            )
-        except Exception:
-            logger.exception("Template formatting failed")
-            cap = f"🍿 Movie time! Results for: **{search}**",
-    else:
-        cap = f"🍿 Movie time! Results for: **{search}**",
+    # ✅ Simple caption (no IMDb)
+    cap = f"<b>Hᴇʏ {message.from_user.mention}, Hᴇʀᴇ’ꜱ Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Qᴜᴇʀʏ:</b> <code>{search}</code>"
 
     # ✅ Send response
     try:
-        if imdb and imdb.get('poster'):
-            try:
-                delauto = await message.reply_photo(photo=imdb['poster'], caption=cap[:1024],
-                                                    reply_markup=InlineKeyboardMarkup(btn))
-            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-                poster = imdb['poster'].replace('.jpg', '._V1_UX360.jpg')
-                delauto = await message.reply_photo(photo=poster, caption=cap[:1024],
-                                                    reply_markup=InlineKeyboardMarkup(btn))
-        else:
-            delauto = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-
+        delauto = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
         await delauto.delete()
         await message.delete()
@@ -806,6 +753,7 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         await msg.message.delete()
         await message.delete()
+
 
 # SPELL CHECK REMOVED
 
