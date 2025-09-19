@@ -63,7 +63,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]-🎬-{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}]-📁-{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -642,17 +642,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
     await query.answer('Piracy Is Crime')
 
 
-
-# ✅ List of suspicious domains
-SUSPICIOUS_DOMAINS = [
-    "xyz", "top", "online", "shop", "click", "fun", "live", "site",
-    "space", "buzz", "club", "cam", "link", "rest", "work"
-]
-
-# ✅ Combined regex for links, usernames, and suspicious domains
-PATTERN = rf'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/|\w+\.({"|".join(SUSPICIOUS_DOMAINS)}))\S+|@[a-z0-9_]{5,32}\b'
-
-
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -661,15 +650,12 @@ async def auto_filter(client, msg, spoll=False):
 
         settings = await get_settings(message.chat.id)
 
-        # ✅ Check for spammy links/usernames/suspicious domains
-        if re.search(PATTERN, message.text):
+        # ✅ Check for spammy links/usernames
+        if re.search(r'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/)\S+|@[a-z0-9_]{5,32}\b', message.text):
+            # ✅ Don't delete if user is an admin
             if message.from_user and message.from_user.id not in ADMINS:
-                try:
-                    await asyncio.sleep(0)  # just yield, no actual wait
-                    await message.delete()
-                    print(f"🗑 Deleted spam from {message.from_user.first_name} (ID: {message.from_user.id}) in chat {message.chat.id}")
-                except Exception as e:
-                    print(f"❌ Failed to delete spam: {e}")
+                await asyncio.sleep()
+                await message.delete()
                 return
 
         # ✅ Skip command-like messages
@@ -684,10 +670,10 @@ async def auto_filter(client, msg, spoll=False):
             # ✅ If no results, offer Google search
             if not files:
                 btn = [[
-                    InlineKeyboardButton("🌐 Not in my DB? Search on Google", url=f"https://www.google.com/search?q={search.replace(' ', '+')}")
+                    InlineKeyboardButton("\n\n🌐 Wanna try Google instead? 👇", url=f"https://www.google.com/search?q={search.replace(' ', '+')}")
                 ]]
                 autodel = await message.reply_text(
-                    f"__🤖 No results found for:__ **{search}**",
+                    f"__🔍 I scanned everywhere but found nothing for:__ **{search}**\n\n⚡ Maybe Google can help!",
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
                 await asyncio.sleep(15)
@@ -712,7 +698,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]-🎬-{file.file_name}",
+                    text=f"[{get_size(file.file_size)}]-📁-{file.file_name}",
                     callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
@@ -793,9 +779,9 @@ async def auto_filter(client, msg, spoll=False):
             )
         except Exception:
             logger.exception("Template formatting failed")
-            cap = f"**🎬 Search result for:** {search}"
+            cap = f"🍿 Movie time! Results for: **{search}**",
     else:
-        cap = f"__🤖 Beep boop! I found something interesting for:__ **{search}**"
+        cap = f"🍿 Movie time! Results for: **{search}**",
 
     # ✅ Send response
     try:
