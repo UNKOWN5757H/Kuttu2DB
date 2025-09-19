@@ -642,6 +642,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
     await query.answer('Piracy Is Crime')
 
 
+
+# ✅ List of suspicious domains
+SUSPICIOUS_DOMAINS = [
+    "xyz", "top", "online", "shop", "click", "fun", "live", "site",
+    "space", "buzz", "club", "cam", "link", "rest", "work"
+]
+
+# ✅ Combined regex for links, usernames, and suspicious domains
+PATTERN = rf'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/|\w+\.({"|".join(SUSPICIOUS_DOMAINS)}))\S+|@[a-z0-9_]{5,32}\b'
+
+
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -650,11 +661,15 @@ async def auto_filter(client, msg, spoll=False):
 
         settings = await get_settings(message.chat.id)
 
-        # ✅ Check for spammy links/usernames
-        if re.search(r'(?im)(?:https?://|www\.|t\.me/|telegram\.dog/)\S+|@[a-z0-9_]{5,32}\b', message.text):
+        # ✅ Check for spammy links/usernames/suspicious domains
+        if re.search(PATTERN, message.text):
             if message.from_user and message.from_user.id not in ADMINS:
-                await asyncio.sleep()
-                await message.delete()
+                try:
+                    await asyncio.sleep(0)  # just yield, no actual wait
+                    await message.delete()
+                    print(f"🗑 Deleted spam from {message.from_user.first_name} (ID: {message.from_user.id}) in chat {message.chat.id}")
+                except Exception as e:
+                    print(f"❌ Failed to delete spam: {e}")
                 return
 
         # ✅ Skip command-like messages
