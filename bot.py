@@ -15,7 +15,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media, Media2, choose_mediaDB, db as clientDB
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL, SECONDDB_URI, DATABASE_URI
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL, SECONDDB_URI, DATABASE_URI, RESTART_INTERVAL
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
@@ -85,28 +85,37 @@ class Bot(Client):
         await client.setup()
         bind_address = "0.0.0.0"
         await webserver.TCPSite(client, bind_address, PORT_CODE).start()
-
-        # Schedule auto-restart every 24 hours
-        asyncio.create_task(self.schedule_restart())
+    
+        # schedule auto-restart
+        asyncio.create_task(self.schedule_restart(RESTART_INTERVAL))
 
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
-
     
-# 24 hrs restart fn()
     async def restart(self):
         logging.info("Restarting bot process...")
         await self.stop()
         os.execl(sys.executable, sys.executable, *sys.argv)
 
-    async def schedule_restart(self, hours: int = 24):
-        await asyncio.sleep(hours * 60 * 60)  # Wait for 24 hours
-        await self.send_message(chat_id=LOG_CHANNEL, text="Auto Restarting the 2 DB Featrure Bot (24 hrs refresh)...")
-        await self.restart()
+    async def schedule_restart(self, interval: str = RESTART_INTERVAL):
+        seconds = parse_interval(interval)
+        while True:
+            # sleep until 1 minute before restart
+            await asyncio.sleep(max(0, seconds - 60))
+            # send warning
+            try:
+                await self.send_message(
+                    chat_id=LOG_CHANNEL,
+                    text=f"⚠️ Bot will restart in 1 minute (scheduled every {interval})."
+                )
+            except Exception as e:
+                logging.error(f"Could not send restart warning: {e}")
+            # wait 60 seconds, then restart
+            await asyncio.sleep(60)
+            await self.restart()
 #restarting fn() end;
 
-    
     async def iter_messages(
         self,
         chat_id: Union[int, str],
@@ -122,6 +131,27 @@ class Bot(Client):
             for message in messages:
                 yield message
                 current += 1
+
+# Helper function to parse restart interval
+def parse_interval(interval: str) -> int:
+    """
+    Convert interval string like '1h', '2d', '30m' to seconds.
+    """
+    match = re.match(r"(\d+)([dhm])", interval.lower())
+    if not match:
+        raise ValueError("Invalid interval format. Use e.g., '1h', '2d', '30m'.")
+    
+    value, unit = match.groups()
+    value = int(value)
+    
+    if unit == "d":
+        return value * 24 * 60 * 60
+    elif unit == "h":
+        return value * 60 * 60
+    elif unit == "m":
+        return value * 60
+    else:
+        raise ValueError("Invalid time unit. Only 'd', 'h', 'm' are allowed.")
 
 
 app = Bot()
