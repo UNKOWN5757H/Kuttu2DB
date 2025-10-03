@@ -1,5 +1,7 @@
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=Kuttu%20Bot%202%20DB&text2=💖%20Open%20Source&width=1000&height=400)](https://github.com/GouthamSER/2DB)
+
 <p align="center">
-  <img src="assets/logo.jpg" alt="Eva Maria Logo">
+  <img src="assets/logo.jpg" alt="2DBLogo">
 </p>
 <h1 align="center">
   <b>2 DB</b>
@@ -48,6 +50,10 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/EvamariaTG/evamaria/blob/master/info.py) for more
 
+* [💰 Support via GPay](https://pay.google.com/gp/p/ui/pay?pa=gouthamjosh22-2@okicici&pn=GouthamJosh)
+
+
+
 
 ## Deploy
 You can deploy this bot anywhere.
@@ -80,7 +86,6 @@ You can deploy this bot anywhere.
 </a>
 </p>
 </details>
-
 
 
 <details><summary>Deploy To VPS</summary>
@@ -128,15 +133,12 @@ python3 bot.py
 
 
 ## Thanks to 
+ - Thanks to me [GouthamJosh](https://github.com/GouthamSER)
  - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
  - Thanks To Mahesh For His Awesome [Media-Search-bot](https://github.com/Mahesh0253/Media-Search-bot)
  - Thanks To [Trojanz](https://github.com/trojanzhex) for Their Awesome [Unlimited Filter Bot](https://github.com/TroJanzHEX/Unlimited-Filter-Bot) And [AutoFilterBoT](https://github.com/trojanzhex/auto-filter-bot)
  - Thanks To All Everyone In This Journey
- - Thanks to me [GouthamJosh](https://github.com/GouthamSER)
 
-### Note
-
-[Note To A So Called Dev](https://telegram.dog/subin_works/203): 
 
 Kanging this codes and and editing a few lines and releasing a V.x  or an [alpha](https://telegram.dog/subin_works/204), beta , gama branches of your repo won't make you a Developer.
 Fork the repo and edit as per your needs.
