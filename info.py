@@ -16,6 +16,13 @@ API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
+# Restart interval for auto-restart: use 'd' for days, 'h' for hours, 'm' for minutes
+# Examples:
+# RESTART_INTERVAL = "2d"   # every 2 days
+# RESTART_INTERVAL = "1h"   # every 1 hour
+# RESTART_INTERVAL = "30m"  # every 30 minutes
+RESTART_INTERVAL = environ.get("RESTART_INTERVAL", "2d")
+
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
