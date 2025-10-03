@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
-from database.ia_filterdb import Media
+from database.ia_filterdb import Media, Media2
 from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
@@ -137,18 +137,39 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 
-@Client.on_message(filters.command('stats') & filters.incoming)
-async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats..')
-    total_users = await db.total_users_count()
-    totl_chats = await db.total_chat_count()
-    files = await Media.count_documents()
-    size = await db.get_db_size()
-    free = 536870912 - size
-    size = get_size(size)
-    free = get_size(free)
-    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
 
+@Client.on_message(filters.command("stats") & filters.incoming)
+async def get_stats(bot, message):
+    rju = await message.reply("Fetching stats...")
+    # primary db
+    totalp = await Media.count_documents()
+    # secondary db
+    totalsec = await Media2.count_documents()
+    # users and chats
+    users = await db.total_users_count()
+    chats = await db.total_chat_count()
+    # primary db stats
+    stats = await clientDB.command("dbStats")
+    used_dbSize = (stats["dataSize"] / (1024 * 1024)) + (stats["indexSize"] / (1024 * 1024))
+    free_dbSize = 512 - used_dbSize
+    # secondary db stats
+    stats2 = await clientDB2.command("dbStats")
+    used_dbSize2 = (stats2["dataSize"] / (1024 * 1024)) + (stats2["indexSize"] / (1024 * 1024))
+    free_dbSize2 = 512 - used_dbSize2
+    await rju.edit_text(
+        text=script.STATUS_TXT.format(
+            (int(totalp) + int(totalsec)),  # total combined docs
+            users,                         # total users
+            chats,                         # total chats
+            totalp,                        # primary db docs
+            round(used_dbSize, 2),         # primary used size
+            round(free_dbSize, 2),         # primary free size
+            totalsec,                      # secondary db docs
+            round(used_dbSize2, 2),        # secondary used size
+            round(free_dbSize2, 2)         # secondary free size
+        )
+    )
+ 
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
