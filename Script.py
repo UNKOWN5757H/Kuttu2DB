@@ -77,22 +77,25 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 <b>ɴᴏᴛᴇ:</b>
  <b>✯ Maintained by : <a href="https://t.me/im_goutham_josh">Owner</a></b>
     """
-    STATUS_TXT = """<b><blockquote>Tᴏᴛᴀʟ Fɪʟᴇs Fʀᴏᴍ Bᴏᴛʜ DBs: <code>{}</code></blockquote>
+    STATUS_TXT = """<b><blockquote>
+Tᴏᴛᴀʟ Fɪʟᴇs Fʀᴏᴍ Bᴏᴛʜ DBs: <code>{}</code>
+</blockquote>
 
-Bᴏᴛ Usᴇʀs ᴀɴᴅ Cʜᴀᴛs Cᴏᴜɴᴛ
+👥 Bᴏᴛ Usᴇʀs ᴀɴᴅ Cʜᴀᴛs
 ★ Tᴏᴛᴀʟ Usᴇʀs: <code>{}</code>
 ★ Tᴏᴛᴀʟ Cʜᴀᴛs: <code>{}</code>
 
-Pʀɪᴍᴀʀʏ Dᴀᴛᴀʙᴀsᴇ Sᴛᴀᴛɪsᴛɪᴄs 
+📦 Pʀɪᴍᴀʀʏ Dᴀᴛᴀʙᴀsᴇ
 ★ Tᴏᴛᴀʟ Fɪʟᴇs: <code>{}</code>
 ★ Usᴇᴅ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
 ★ Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
 
-Sᴇᴄᴏɴᴅᴀʀʏ Dᴀᴛᴀʙᴀsᴇ Sᴛᴀᴛɪsᴛɪᴄs
+📦 Sᴇᴄᴏɴᴅᴀʀʏ Dᴀᴛᴀʙᴀsᴇ
 ★ Tᴏᴛᴀʟ Fɪʟᴇs: <code>{}</code>
 ★ Usᴇᴅ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
 ★ Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
 </b>"""
+
     
     LOG_TEXT_G = """#NewGroup
 Kuttu Bot 2 DB💫
