@@ -73,6 +73,7 @@ You can deploy this bot anywhere.
 &env[AUTH_GROUPS]
 &env[P_TTI_SHOW_OFF]=True
 &env[RESTART_INTERVAL]=2d
+&env[SECONDDB_URI]=your_secondary_db_uri
 &branch=main
 &name=2DB">
 <img src="https://www.koyeb.com/static/images/deploy/button.svg">
