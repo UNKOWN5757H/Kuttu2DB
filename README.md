@@ -2,17 +2,17 @@
   <img src="assets/logo.jpg" alt="Eva Maria Logo">
 </p>
 <h1 align="center">
-  <b>Eva Maria Bot</b>
+  <b>2 DB</b>
 </h1>
 
 
-[![Stars](https://img.shields.io/github/stars/EvamariaTG/EvaMaria?style=flat-square&color=yellow)](https://github.com/EvamariaTG/EvaMaria/stargazers)
-[![Forks](https://img.shields.io/github/forks/EvamariaTG/EvaMaria?style=flat-square&color=orange)](https://github.com/EvamariaTG/EvaMaria/fork)
-[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/EvamariaTG/EvaMaria)   
-[![Contributors](https://img.shields.io/github/contributors/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/graphs/contributors)
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/EvamariaTG/EvaMaria/blob/main/LICENSE)
-[![Sparkline](https://stars.medv.io/EvamariaTG/EvaMaria.svg)](https://stars.medv.io/EvamariaTG/EvaMaria)
+[![Stars](https://img.shields.io/github/stars/GouthamSER/2DB?style=flat-square&color=yellow)](https://github.com/GouthamSER/2DB/stargazers)
+[![Forks](https://img.shields.io/github/forks/GouthamSER/2DB?style=flat-square&color=orange)](https://github.com/GouthamSER/2DB/fork)
+[![Size](https://img.shields.io/github/repo-size/GouthamSER/2DB?style=flat-square&color=green)](https://github.com/GouthamSER/2DB/)   
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/GouthamSER/2DB)   
+[![Contributors](https://img.shields.io/github/contributors/GouthamSER/2DB?style=flat-square&color=green)](https://github.com/GouthamSER/2DB/graphs/contributors)
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/GouthamSER/2DB/blob/main/LICENSE)
+[![Sparkline](https://stars.medv.io/GouthamSER/2DB.svg)](https://stars.medv.io/GouthamSER/2DB)
 
 
 ## Features
@@ -29,7 +29,7 @@
 - [x] ids and User info 
 - [x] Stats, Users, Chats, Ban, Unban, Leave, Disable, Channel
 - [x] Spelling Check Feature
-- [x] File Store
+- [x] File Store 2 DB FEATURE
 ## Variables
 
 Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up with your edits.
@@ -66,7 +66,7 @@ You can deploy this bot anywhere.
 <details><summary>Deploy To Koyeb</summary>
 <p>
 <br>
-<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/OGEva&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=files&env[CHANNELS]&env[IMDB]=False&env[SINGLE_BUTTON]=True&env[AUTH_GROUPS]&env[P_TTI_SHOW_OFF]=True&branch=main&name=ogeva">
+<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/2DB&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=files&env[CHANNELS]&env[IMDB]=False&env[SINGLE_BUTTON]=True&env[AUTH_GROUPS]&env[P_TTI_SHOW_OFF]=True&branch=main&name=ogeva">
  <img src="https://www.koyeb.com/static/images/deploy/button.svg">
 </a>
 </p>
@@ -76,7 +76,7 @@ You can deploy this bot anywhere.
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/GouthamSER/OGEva
+git clone https://github.com/GouthamSER/2DB
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
