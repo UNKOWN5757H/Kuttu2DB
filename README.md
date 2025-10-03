@@ -52,25 +52,34 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 ## Deploy
 You can deploy this bot anywhere.
 
-<i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
-
-<details><summary>Deploy To Heroku</summary>
-<p>
-<br>
-<a href="https://telegram.dog/XTZ_HerokuBot?start=RXZhbWFyaWFURy9FdmFNYXJpYSBtYXN0ZXI">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
-</p>
-</details>
-
 <details><summary>Deploy To Koyeb</summary>
 <p>
 <br>
-<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/2DB&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=files&env[CHANNELS]&env[IMDB]=False&env[SINGLE_BUTTON]=True&env[AUTH_GROUPS]&env[P_TTI_SHOW_OFF]=True&branch=main&name=ogeva">
- <img src="https://www.koyeb.com/static/images/deploy/button.svg">
+<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/2DB
+&env[BOT_TOKEN]
+&env[API_ID]
+&env[API_HASH]
+&env[CHANNELS]
+&env[ADMINS]
+&env[PICS]
+&env[LOG_CHANNEL]
+&env[AUTH_CHANNEL]
+&env[CUSTOM_FILE_CAPTION]
+&env[DATABASE_URI]
+&env[DATABASE_NAME]
+&env[COLLECTION_NAME]=files
+&env[IMDB]=False
+&env[SINGLE_BUTTON]=True
+&env[AUTH_GROUPS]
+&env[P_TTI_SHOW_OFF]=True
+&env[RESTART_INTERVAL]=2d
+&branch=main
+&name=2DB">
+<img src="https://www.koyeb.com/static/images/deploy/button.svg">
 </a>
 </p>
 </details>
+
 
 
 <details><summary>Deploy To VPS</summary>
