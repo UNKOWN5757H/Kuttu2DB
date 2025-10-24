@@ -671,7 +671,7 @@ async def auto_filter(client, msg, spoll=False):
                     InlineKeyboardButton("\n\n🌐 Wanna try Google instead? 👇", url=f"https://www.google.com/search?q={search.replace(' ', '+')}")
                 ]]
                 autodel = await message.reply_text(
-                    f"__🔍 I scanned everywhere but found nothing for:__ **{search}**\n\n⚡ Maybe Google can help!",
+                    f"👋 Hey {message.from_user.mention}, No results found for your query{search}.\n🎬 Please enter the movie or series name in the correct search format.\n📌 We only provide OTT-released movies. Movies still running in theaters or not yet released on OTT are not available.\n🚫 Camera prints are not shared — only HD quality movies are provided.\n<blockquote>⚠️ If you used the correct spelling and the movie has already been released on OTT but you still didn’t get the file, kindly report to admin 👉 @im_goutham_josh</blockquote>",
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
                 await asyncio.sleep(15)
