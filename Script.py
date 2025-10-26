@@ -2,10 +2,8 @@ class script(object):
     
     START_TXT = """<b><blockquote>𝙷𝙴𝙻L𝙾 {}</blockquote></b>,
     
-𝐴𝑠𝑘 𝐻𝑒𝑟𝑒 𝑀𝑜𝑣𝑖𝑒𝑠 𝑖𝑛 𝑃𝑚 🔪
-𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href=https://t.me/{}>{}</a>, 𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙴𝙽𝙹𝙾𝚈 😍
-
-<b><blockquote>Using 2DB Feature</blockquote></b>"""
+𝐴𝑠𝑘 𝐻𝑒𝑟𝑒 𝑀𝑜𝑣𝑖𝑒𝑠 𝑖𝑛 Group 🔪
+𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href=https://t.me/{}>{}</a>, 𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙴𝙽𝙹𝙾𝚈 😍"""
     
     HELP_TXT = """𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
@@ -14,11 +12,11 @@ class script(object):
     
 ‣ ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/{}>Click Here</a>
 ‣ ᴍʏ ʙᴇsᴛ ғʀɪᴇɴᴅ : <a href='tg://settings'>ᴛʜɪs ᴘᴇʀsᴏɴ</a> 
-‣ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href="https://t.me/im_goutham_josh">ᴏᴡɴᴇʀ</a> 
-‣ ʟɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>ᴘʏʀᴏɢʀᴀᴍ</a> 
-‣ ʟᴀɴɢᴜᴀɢᴇ : <a href='https://www.python.org/download/releases/3.0/'>ᴘʏᴛʜᴏɴ 3</a> 
-‣ ᴅᴀᴛᴀ ʙᴀsᴇ : <a href='https://www.mongodb.com/'>ᴍᴏɴɢᴏ ᴅʙ</a> 
-‣ ʙᴏᴛ sᴇʀᴠᴇʀ : <a href='https://koyeb.com'>Koyeb</a> 
+‣ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href="https://t.me/sandalwood_man">ᴏᴡɴᴇʀ</a> 
+‣ ʟɪʙʀᴀʀʏ : Pʏʀᴏɢʀᴀᴍ
+‣ ʟᴀɴɢᴜᴀɢᴇ : Pʏᴛʜᴏɴ
+‣ ᴅᴀᴛᴀ ʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ
+‣ ʙᴏᴛ sᴇʀᴠᴇʀ : Koyeb
 ‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ2.7.1 [sᴛᴀʙʟᴇ]></b>"""
     
     SOURCE_TXT = """<b>NOTE:</b>
@@ -26,7 +24,7 @@ class script(object):
 Tʜɪs Bᴏᴛ ɪs Fʀᴇᴇ Tᴏ Usᴇ 
 2ᴅʙ Fᴇᴀᴛᴜʀᴇ - SPELL CHECK REMOVED :)
 
-Sᴏᴜʀᴄᴇ Cᴏᴅᴇ : <a href="github.com/GouthamSER/2DB">𝘾𝙤𝙙𝙚 📌</a>"""
+Sᴏᴜʀᴄᴇ Cᴏᴅᴇ : <a href="t.me/Sandalwood_Man">𝘾𝙤𝙙𝙚 📌</a>"""
     
     MANUELFILTER_TXT = """ʜᴇʟᴘ: <b>ꜰɪʟᴛᴇʀꜱ</b>
 - ꜰɪʟᴛᴇʀ ɪꜱ ᴀ ꜰᴇᴀᴛᴜʀᴇ ᴡᴇʀᴇ ᴜꜱᴇʀꜱ ᴄᴀɴ ꜱᴇᴛ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ʀᴇᴘʟɪᴇꜱ ꜰᴏʀ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴋᴇʏᴡᴏʀᴅ ᴀɴᴅ ɪ ᴡɪʟʟ ʀᴇꜱᴘᴏɴᴅ ᴡʜᴇɴᴇᴠᴇʀ ᴀ ᴋᴇʏᴡᴏʀᴅ ɪꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴍᴇꜱꜱᴀɢᴇ
@@ -47,7 +45,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 2. ᴛʜɪꜱ ʙᴏᴛ ꜱᴜᴘᴘᴏʀᴛꜱ ʙᴜᴛᴛᴏɴꜱ ᴡɪᴛʜ ᴀɴʏ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ ᴛʏᴘᴇ.
 3. ʙᴜᴛᴛᴏɴꜱ ꜱʜᴏᴜʟᴅ ʙᴇ ᴘʀᴏᴘᴇʀʟʏ ᴘᴀʀꜱᴇᴅ ᴀꜱ ᴍᴀʀᴋᴅᴏᴡɴ ꜰᴏʀᴍᴀᴛ
 <b>ᴜʀʟ ʙᴜᴛᴛᴏɴꜱ:</b>
-<code>[Button Text](buttonurl:https://t.me/vjupdates2/3)</code>
+<code>[Button Text](buttonurl:https://t.me/KR_PICTURE2/3)</code>
 <b>ᴀʟᴇʀᴛ ʙᴜᴛᴛᴏɴꜱ:</b>
 <code>[Button Text](buttonalert:ᴛʜɪꜱ ɪꜱ ᴀɴ ᴀʟᴇʀᴛ ᴍᴇꜱꜱᴀɢᴇ)</code>"""
 
@@ -75,7 +73,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
     EXTRAMOD_TXT = """ʜᴇʟᴘ: Exᴛʀᴀ Mᴏᴅᴜʟᴇs
 <b>ɴᴏᴛᴇ:</b>
- <b>✯ Maintained by : <a href="https://t.me/im_goutham_josh">Owner</a></b>
+ <b>✯ Maintained by : <a href="https://t.me/Sandalwood_man">Owner</a></b>
     """
     STATUS_TXT = """<b><blockquote>
 Tᴏᴛᴀʟ Fɪʟᴇs Fʀᴏᴍ Bᴏᴛʜ DBs: <code>{}</code>
@@ -179,5 +177,5 @@ Sᴇʀɪᴇꜱ Rᴇǫᴜᴇꜱᴛ Fᴏʀᴍᴀᴛ
     TOP_ALRT_MSG = """Cʜᴇᴄᴋɪɴɢ Fᴏʀ Mᴏᴠɪᴇ Iɴ Dᴀᴛᴀʙᴀsᴇ..."""
     DMCA_TXT = """<b><u>This Telegram bot is designed to operate within the guidelines of the Digital Millennium Copyright Act (DMCA) and respects intellectual property rights. We are committed to responding to any valid DMCA takedown notices promptly.</u></b>
 
-<blockquote>Please send your DMCA takedown notice to dmcarexie@proton.me</blockquote>
+<blockquote>Please send your DMCA takedown notice to @Sandalwood_Man</blockquote>
 """
