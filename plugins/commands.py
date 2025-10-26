@@ -75,7 +75,7 @@ async def start(client, message: Message):
             chat_id=message.chat.id,
             text="<blockquote>❗️Send Movie Name and Year Correctly 👍📌</blockquote>"
         )
-        await asyncio.sleep(120)
+        await asyncio.sleep(3600)
         await clsnt.delete()
         return
     invite_links = await is_subscribed(client, query=message)
@@ -108,7 +108,7 @@ async def start(client, message: Message):
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
-        await asyncio.sleep(33)
+        await asyncio.sleep(3600)
         await authdel.delete()
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
@@ -244,7 +244,7 @@ async def start(client, message: Message):
                 protect_content=True if pre == 'filep' else False,
                 )
             k = await client.send_message(chat_id = message.from_user.id, text=f"<blockquote><b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ <b><u>10 mins</u> 🫥 <i></b>(ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs)</i>.\n\n<b><i>ᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴛᴏ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ᴏʀ ᴀɴʏ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ.</i></b></blockquote>")
-            await asyncio.sleep(600)
+            await asyncio.sleep(1800)
             await msg.delete()
             await k.edit_text("<b>✅ Yᴏᴜʀ File ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ</b>")
             return
@@ -282,7 +282,7 @@ async def start(client, message: Message):
         protect_content=True if pre == 'filep' else False,
         )
     k = await client.send_message(chat_id = message.from_user.id, text=f"<blockquote><b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ <b><u>10 mins</u> 🫥 <i></b>(ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs)</i>.\n\n<b><i>ᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴛᴏ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ᴏʀ ᴀɴʏ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ.</i></b></blockquote>")
-    await asyncio.sleep(600)
+    await asyncio.sleep(1800)
     await m.delete()
     await k.edit_text("<b>✅ Yᴏᴜʀ File ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ</b>")
     return      
