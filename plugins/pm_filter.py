@@ -149,14 +149,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     "I'm not connected to any groups!\nCheck /connections or connect to any groups",
                     quote=True
                 )
-                return await query.answer('Piracy Is Crime')
+                return await query.answer('Team: @KR_Picture')
 
         elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
             grp_id = query.message.chat.id
             title = query.message.chat.title
 
         else:
-            return await query.answer('Piracy Is Crime')
+            return await query.answer('Team: @KR_Picture')
 
         st = await client.get_chat_member(grp_id, userid)
         if (st.status == enums.ChatMemberStatus.OWNER) or (str(userid) in ADMINS):
@@ -639,7 +639,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    await query.answer('Team: @KR_Picture')
 
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
@@ -671,7 +671,7 @@ async def auto_filter(client, msg, spoll=False):
                     InlineKeyboardButton("\n\n🌐 Wanna try Google instead? 👇", url=f"https://www.google.com/search?q={search.replace(' ', '+')}")
                 ]]
                 autodel = await message.reply_text(
-                    f"👋 Hey {message.from_user.mention}, No results found for your query {search}.\n\n🎬 Please enter the movie or series name in the correct search format.\n\n📌 We only provide OTT-released movies. Movies still running in theaters or not yet released on OTT are not available.\n\n🚫 Camera prints are not shared — only HD quality movies are provided.\n<blockquote>⚠️ If you used the correct spelling and the movie has already been released on OTT but you still didn’t get the file, kindly report to admin 👉 @im_goutham_josh</blockquote>",
+                    f"👋 Hey {message.from_user.mention}, No results found for your query {search}.\n\n🎬 Please enter the movie or series name in the correct search format.\n\n📌 We only provide OTT-released movies. Movies still running in theaters or not yet released on OTT are not available.\n\n🚫 Camera prints are not shared — only HD quality movies are provided.\n<blockquote>⚠️ If you used the correct spelling and the movie has already been released on OTT but you still didn’t get the file, kindly report to admin 👉 @Sandalwood_man</blockquote>",
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
                 await asyncio.sleep(15)
