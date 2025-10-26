@@ -1,12 +1,19 @@
+
 FROM python:3.10.8-slim-buster
 
-RUN apt update && apt upgrade -y
-RUN apt install git -y
-COPY requirements.txt /requirements.txt
+# Install necessary system packages
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN cd /
-RUN pip3 install -U pip && pip3 install -U -r requirements.txt
-RUN mkdir /Kuttu2DB
+# Copy and install Python dependencies
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -U pip && \
+    pip3 install --no-cache-dir -r requirements.txt
+
+# Set working directory and copy bot files
 WORKDIR /Kuttu2DB
-COPY . /Kuttu2DB
+COPY . .
+
+# Run the bot
 CMD ["python", "bot.py"]
