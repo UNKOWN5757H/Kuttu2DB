@@ -1,23 +1,31 @@
-FROM python:3.10-slim-bookworm
+FROM python:3.10-slim
 
-# Install system deps
-RUN apt update && apt install -y --no-install-recommends git supervisor \
+# System deps
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       build-essential \
+       libpq-dev \
+       supervisor \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python deps
-COPY requirements.txt .
-RUN pip install --no-cache-dir -U pip && pip install --no-cache-dir -r requirements.txt
+# Create app user and directories
+RUN mkdir -p /app /var/log/supervisor /app/logs
+WORKDIR /app
 
-# Copy bot
-WORKDIR /Kuttu2DB
-COPY . .
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Supervisor config
-RUN mkdir -p /etc/supervisor/conf.d
+# Copy project files
+COPY . /app
+
+# Ensure logs dir exists and is writable
+RUN mkdir -p /app/logs && chown -R root:root /app/logs
+
+# Supervisor config location
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisor_programs.conf /etc/supervisor/conf.d/supervisor_programs.conf
 
-# Healthcheck - bot must respond on localhost:8000 or remove if not needed
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD pgrep -f "python bot.py" || exit 1
+# Expose the port (Koyeb will set PORT env var at runtime)
+EXPOSE 8080
 
-# Start Supervisor (auto restarts bot on crash)
-CMD ["/usr/bin/supervisord", "-n"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
