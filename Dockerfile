@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 
 WORKDIR /Kuttu2DB
 
-# Install runtime deps + git for git+requirements if needed
+# Install runtime deps (git kept for git+ entries in requirements)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git ca-certificates \
     && rm -rf /var/lib/apt/lists/*
@@ -18,8 +18,8 @@ RUN pip install --no-cache-dir -U pip setuptools wheel \
 # Copy app
 COPY . /Kuttu2DB
 
-# Expose port (Koyeb sets $PORT at runtime)
+# Expose port (Koyeb injects $PORT at runtime)
 EXPOSE 8080
 
-# Use hypercorn to run the Quart app (bot.py defines `app`)
-CMD ["hypercorn", "bot:app", "--bind", "0.0.0.0:${PORT:-8080}", "--workers", "1"]
+# Run the single-process bot which starts aiohttp itself.
+CMD ["python3", "bot.py"]
