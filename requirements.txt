@@ -11,5 +11,3 @@ git+https://github.com/Joelkb/cinemagoer
 aiohttp
 aiofiles
 pytz
-quart==0.18.1
-hypercorn==1.1.0
