@@ -7,5 +7,7 @@ env
 venv
 dist
 build
-.logs
+.wheels
+.wheelhouse
+logs
 *.log
