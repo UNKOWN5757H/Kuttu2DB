@@ -11,5 +11,5 @@ git+https://github.com/Joelkb/cinemagoer
 aiohttp
 aiofiles
 pytz
-fastapi==0.95.2
-uvicorn[standard]==0.22.0
+quart==0.18.1
+hypercorn==1.1.0
